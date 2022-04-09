@@ -38,7 +38,6 @@ interface Data {
   title: string;
 }
 
-
 export function App() {
   const [search, setSearch] = useState('')
   const [data, setData] = useState <Data[]>([]);
@@ -55,7 +54,7 @@ export function App() {
   return (
     <Flex height="100vh" flexDirection="column"  alignItems="center" padding="1rem">
       <Box width="200px">
-        <InputSearch value={search} onChange={({ target: { value } }) => setSearch(value)} />
+        <InputSearch onSearch={setSearch} />
       </Box>
       <GifContainer>
         {data?.map(({ id, images: { original: { url }}, title }) => (
